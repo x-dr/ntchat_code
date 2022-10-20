@@ -6,7 +6,7 @@ os.environ['NTCHAT_LOG'] = "ERROR"
 
 import ntchat
 import datetime
-from api.douyin import get_video_info, get_video_id, get_video_url
+from api.douyin import get_video_info
 from api.caiyun import get_city_weather,get_location_weather
 from api.hot import get_weibo_hot,get_zhihu
 from api.jd import get_msg as jd_msg
