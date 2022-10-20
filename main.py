@@ -10,7 +10,7 @@ from api.douyin import get_video_info, get_video_id, get_video_url
 from api.caiyun import get_city_weather,get_location_weather
 from api.hot import get_weibo_hot,get_zhihu
 from api.jd import get_msg as jd_msg
-from utils.down import get_local_path,get_local_video,get_local_pic
+from utils.down import get_local_video,get_local_pic
 from utils.urltoqr import create_qr_code
 import schedule
 import xmltodict
@@ -36,7 +36,7 @@ menu="""注意：目前所有带+的查询，中间必须是一个空格
 
 
 --------------娱乐-------------
-1、解析抖音视频(抖音-分享-复制链接-在微信群粘贴
+1、解析抖音视频(抖音-分享-复制链接-在微信群粘贴)
 """
 
 
@@ -62,7 +62,7 @@ def on_recv_text_msg(wechat_instance: ntchat.WeChat, message):
 
 
 
-
+# 消息回调
 @wechat.msg_register(ntchat.MT_RECV_TEXT_MSG)
 def on_recv_text_msg(wechat: ntchat.WeChat, message):
     data = message["data"]
@@ -76,7 +76,6 @@ def on_recv_text_msg(wechat: ntchat.WeChat, message):
         return
 
     if msg[0:2] == "功能":
-        # send_text_job2()
         res =menu
         if room_wxid != "":
             wechat.send_text(to_wxid=room_wxid, content=res)
@@ -166,7 +165,7 @@ def on_recv_text_msg(wechat: ntchat.WeChat, message):
 
 
 
-
+#监听位置信息
 @wechat.msg_register(ntchat.MT_RECV_LOCATION_MSG)
 def on_recv_text_msg(wechat: ntchat.WeChat, message):
     data = message["data"]
@@ -179,7 +178,6 @@ def on_recv_text_msg(wechat: ntchat.WeChat, message):
 
     if from_wxid == self_wxid:
         return
-    # print("======================\n","======================\n",msg,"======================\n","======================\n")
     d=xmltodict.parse(msg)
     # print(d['msg']['location']['@x'],d['msg']['location']['@y'])
     location=d['msg']['location']['@y']+","+d['msg']['location']['@x']
@@ -201,8 +199,7 @@ def on_recv_text_msg(wechat: ntchat.WeChat, message):
 
 try:
     while True:
-        schedule.run_pending()
-        # time.sleep(1)
+        # schedule.run_pending()
         pass
 except KeyboardInterrupt:
     ntchat.exit_()

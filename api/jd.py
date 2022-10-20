@@ -16,9 +16,6 @@ def get_time_stamp():
 
 
 def get_url(raw_url):
-    # raw_url='10:08抢购昆仑的赚华为Mate 50 8G+128GB\n https://u.jd.com/9Kr8Qwr'
-
-
     body={
     "funName":"getSuperClickUrl",
     "param":{
@@ -69,9 +66,6 @@ def get_pic_url(raw_url):
         "unionId": UNION_ID
     }
     url = f'https://api.m.jd.com/api?functionId=unionSearch&appid=u&_={get_time_stamp()}&body={body}&loginType=2'
-    # print(url)
-    # dlinkQRUrl=requests.request("GET", url, get_headers(),data=payload)
-
     dlinkQRUrl = requests.request("GET", url, headers=get_headers(), data=payload)
     
     return dlinkQRUrl.json()['data']['dlinkQRUrl']

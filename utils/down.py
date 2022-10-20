@@ -32,16 +32,7 @@ def new_download_file():
             return path
 
 
-def get_local_path(url):
-    if os.path.isfile(url):
-        return url
-    if not url:
-        return None
-    data = requests.get(url,headers).content
-    temp_file = new_download_file()
-    with open(temp_file, 'wb') as fp:
-        fp.write(data)
-    return temp_file
+
 
 
 #下载抖音视频
@@ -65,6 +56,7 @@ def get_local_video(url, title):
     temp_file = new_download_video(new_title)+'.mp4'
     with open(temp_file, 'wb') as fp:
         fp.write(data)
+        fp.close()
     return temp_file
 
 
