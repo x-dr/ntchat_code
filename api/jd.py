@@ -83,7 +83,7 @@ def get_msg(raw_url):
 
             linkQRUrl = get_pic_url(data['data']['promotionUrl'])
             # originalContext
-            msg = f'【京东联盟】\n{originalContext}\n\n【预计佣金:¥】{wlCommission}\n【佣金比例:】{wlCommissionShare}%'
+            msg = f'{originalContext}'
             # print(msg)
             return '200',msg, linkQRUrl
         else:
