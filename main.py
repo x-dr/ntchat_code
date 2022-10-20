@@ -101,14 +101,14 @@ def on_recv_text_msg(wechat: ntchat.WeChat, message):
 
 
     if 'https://v.douyin.com' in msg:
-        douyin_result = get_video_info(get_video_id(get_video_url(msg)))
+        douyin_result = get_video_info(msg)
         if room_wxid != "":
             wechat.send_text(to_wxid=room_wxid, content=douyin_result[2])
-            file_path = get_local_video(douyin_result[3], douyin_result[4])
+            file_path = get_local_video(douyin_result[1], douyin_result[4])
             wechat.send_video(to_wxid=room_wxid, file_path=file_path)
         else:
             wechat.send_text(to_wxid=from_wxid, content=douyin_result[2])
-            file_path = get_local_video(douyin_result[3], douyin_result[4])
+            file_path = get_local_video(douyin_result[1], douyin_result[4])
             wechat.send_video(to_wxid=from_wxid, file_path=file_path)
     
 
