@@ -2,7 +2,7 @@
 virtualenv env -->
 ### 支持的微信版本下载
 
-+ 下载  [WeChatSetup3.6.0.18.exe](https://tryxd.cn/https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.6.0.18/WeChatSetup-3.6.0.18.exe)
++ 下载  [WeChatSetup3.6.0.18.exe](https://gh.tryxd.cn/https://github.com/tom-snow/wechat-windows-versions/releases/download/v3.6.0.18/WeChatSetup-3.6.0.18.exe)
 
 ### 安装
 ```shell
